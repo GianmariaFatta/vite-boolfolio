@@ -11,7 +11,7 @@ export default {
     methods: {
         fetchProjects() {
             axios.get(apiBaseUrl + 'projects').then(res => {
-                console.log(res.data);
+                this.projects = res.data;
             });
 
         }
@@ -26,7 +26,10 @@ export default {
 <template>
     <AppHeader />
     <main class="container">
-
+        <ul v-if="projects.length" class="mt-3">
+            <li v-for="project in projects" :key='project.id'>{{ project.title }}</li>
+        </ul>
+        <h4 v-else class="text-center">Non ci sono post</h4>
     </main>
 </template>
 
