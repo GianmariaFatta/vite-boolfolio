@@ -1,10 +1,11 @@
 <script>
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
+import projectList from './components/projects/projectList.vue';
 const apiBaseUrl = 'http://localhost:8000/api/';
 export default {
     name: 'App',
-    components: { AppHeader },
+    components: { AppHeader, projectList },
     data: () => ({
         projects: []
     }),
@@ -26,10 +27,7 @@ export default {
 <template>
     <AppHeader />
     <main class="container">
-        <ul v-if="projects.length" class="mt-3">
-            <li v-for="project in projects" :key='project.id'>{{ project.title }}</li>
-        </ul>
-        <h4 v-else class="text-center">Non ci sono post</h4>
+        <projectList :projects="projects" />
     </main>
 </template>
 
