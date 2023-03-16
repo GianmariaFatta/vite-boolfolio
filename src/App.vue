@@ -1,18 +1,18 @@
 <script>
-import Homepage from './pages/Homepage.vue';
+
 import AppHeader from './components/AppHeader.vue';
 
 
 export default {
     name: 'App',
-    components: { AppHeader, Homepage },
+    components: { AppHeader },
 }
 </script>
 
 
 <template>
     <AppHeader />
-    <Homepage />
+    <RouterView />
 </template>
 
 
