@@ -1,7 +1,7 @@
 <script>
 export default {
     name: 'ProjectCard',
-    props: { project: Object }
+    props: { project: Object, isDetail: Boolean }
 };
 </script>
 
@@ -13,10 +13,13 @@ export default {
             <img class='w-25' :src=project.thumb alt="">
         </div>
         <div class="card-body">
+
             <p>{{ project.description }}</p>
         </div>
-        <div class="card-footer">
+        <div class="card-footer d-flex justify-content-between">
             <span>{{ project.updated_at }}</span>
+            <router-link v-if="!isDetail" class="btn btn-sm btn-success"
+                :to="{ name: 'project-detail', params: { slug: project.slug } }">Vedi</router-link>
         </div>
     </div>
 </template>
